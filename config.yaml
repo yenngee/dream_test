@@ -1,10 +1,10 @@
-baseurl: https://example.com
+baseurl: https://yenngee-dataviz.netlify.app/
 languageCode: en
 defaultContentLanguage: en
 title: Hugo Theme Dream
 theme: hugo-theme-dream
 params:
-  author: Yue Yang
+  author: Ng Yen Ngee
   avatar: /img/avatar.jpeg
   background: '#f7f7f7'
   email: g1enyy0ung@gmail.com
