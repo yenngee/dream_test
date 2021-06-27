@@ -1,0 +1,14 @@
+baseurl: https://example.com
+languageCode: en
+defaultContentLanguage: en
+title: Hugo Theme Dream
+theme: hugo-theme-dream
+params:
+  author: Yue Yang
+  avatar: /img/avatar.jpeg
+  background: '#f7f7f7'
+  email: g1enyy0ung@gmail.com
+  headerTitle: Hugo Theme Dream
+  linkColor: seagreen
+  motto: Motto
+  siteStartYear: 2016
