@@ -1,7 +1,7 @@
-baseurl = "https://example.com"
+baseurl = "https://yenngee-dataviz.netlify.app/"
 languageCode = "en"
 defaultContentLanguage = "en"
-title = "Hugo Theme Dream"
+title = "Data Visualization"
 theme = "hugo-theme-dream"
 
 # copyright = ""
@@ -25,7 +25,7 @@ theme = "hugo-theme-dream"
   # darkNav = true
   # dark404 = true
 
-  author = "Yue Yang"
+  author = "Ng Yen Ngee"
   # description = ""
   avatar = "/img/avatar.jpeg"
   headerTitle = "Hugo Theme Dream"
@@ -44,13 +44,13 @@ theme = "hugo-theme-dream"
   # LEANCLOUD_APP_ID = ""
   # LEANCLOUD_APP_KEY = ""
 
-  email = "g1enyy0ung@gmail.com"
+  email = "ngyenngee@hotmail.com"
   # twitter = ""
   # facebook = ""
   # instagram = ""
   # mastodon = ""
-  # linkedin = ""
-  # github = ""
+  linkedin = "https://www.linkedin.com/in/ng-yen-ngee/"
+  github = "https://github.com/yenngee"
   # stackoverflow = ""
   # codepen = ""
 
