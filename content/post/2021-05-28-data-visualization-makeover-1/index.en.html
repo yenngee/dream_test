@@ -1,12 +1,416 @@
 ---
-title: Data Visualization Makeover 1
-author: Ng Yen Ngee
+title: "Data Visualization Makeover 1"
+author: "Ng Yen Ngee"
 date: '2021-05-28'
 slug: []
-categories: []
-tags: []
+categories: ["R"]
+tags: ["DataVizMakeover", "SMU-MITB", "Data Visualization"]
 ---
 
 
 
-
+<div id="critique-of-visualization" class="section level2">
+<h2>1 Critique of Visualization</h2>
+<p>Original visualization can be seen below:</p>
+<p><img src="img/original_viz.jpg" width="690" /></p>
+<p>The original visualization has its own flaws. We will be critiquing them below:</p>
+<div id="by-aesthetics" class="section level3">
+<h3>By Aesthetics</h3>
+<table>
+<colgroup>
+<col width="4%" />
+<col width="33%" />
+<col width="61%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>No.</th>
+<th>Description of Critique</th>
+<th>Consequence/Remark</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A1</td>
+<td>The font size of the overall title is smaller than the subtitle of each graph.</td>
+<td>The attention is immediately drawn to each country’s names instead of the main title which would tell us what this graph is telling us.</td>
+</tr>
+<tr class="even">
+<td>A2</td>
+<td>There is no annotation to convey insights</td>
+<td>The visualization just presents a bunch of numbers where audience are unable to make head or tails of. <br> e.g. there is a dip in both exports and imports for Mainland China during 2020 that is likely due to spreading of COVID and annotation should include events like this.</td>
+</tr>
+<tr class="odd">
+<td>A3</td>
+<td>Graphs is in a 2 by 3 grid.</td>
+<td>Gives the impression that the category splitting the row is different from the category splitting the column which is not true. It also makes it difficult to compare information across countries.</td>
+</tr>
+<tr class="even">
+<td>A4</td>
+<td>There is no order in the placement of countries.</td>
+<td>More insights can be derived if we ordered the data in a logical way.</td>
+</tr>
+<tr class="odd">
+<td>A5</td>
+<td>Overlapping of area chart colours makes it rather ugly and difficult to read</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="by-clarity" class="section level3">
+<h3>By Clarity</h3>
+<table>
+<colgroup>
+<col width="4%" />
+<col width="33%" />
+<col width="61%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>No.</th>
+<th>Description of Critique</th>
+<th>Consequence/Remark</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C1</td>
+<td>The width of the x-axis is all different for all countries.</td>
+<td>Gives the wrong impression that some countries have more exports/imports based on area.</td>
+</tr>
+<tr class="even">
+<td>C2</td>
+<td>The range of the x-axis is different for Japan, and only shows 2020 on the x-axis</td>
+<td>Gives the wrong impression that there is no trade in 2019.</td>
+</tr>
+<tr class="odd">
+<td>C3</td>
+<td>Within a single subplot, the left and right y-axis have different ranges and scale, resulting in similar heights of area chart between Exports and Imports.</td>
+<td>Gives the wrong impression that the amount of Import and Export are around the same for all countries. However, this may not be true. <br> E.g. for Hong Kong, Export ranges below 1 Million while Imports ranges above 4 Million.</td>
+</tr>
+<tr class="even">
+<td>C4</td>
+<td>The y-axis across all 6 countries has different scales and ranges resulting in similar heights of area charts across countries.</td>
+<td>Gives the wrong impression that trade is consistent across all countries. However, if 2 countries are being compared it is apparent that this is not true. <br> E.g. Hong Kong vs Mainland China, Mainland China has higher amount of Import than Hong Kong</td>
+</tr>
+<tr class="odd">
+<td>C5</td>
+<td>The x-axis and y-axis have no tick marks even through it is a quantitative scale.</td>
+<td>It makes data difficult to read.</td>
+</tr>
+<tr class="even">
+<td>C6</td>
+<td>Area charts used to represent Export and Import are overlapping.</td>
+<td>Area charts are best used for establishing part-to-whole relationship or to exaggerate change.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="visualization-makeover" class="section level2">
+<h2>2 Visualization Makeover</h2>
+<div id="proposed-design" class="section level3">
+<h3>Proposed Design</h3>
+<p>Considering that we want to minimize changes made to the original visualization as much as possible, the visualization has been redesigned as follows:</p>
+<p><img src="img/design_draft.jpg" width="768" /></p>
+<p>Below I will discuss the various key changes that has been made and explain why the changes were made and which critique in the earlier section did these changes overcome:</p>
+<div id="keeping-area-chart-type-but-stacking-them-instead." class="section level4">
+<h4><strong>Keeping area chart type but stacking them instead. </strong></h4>
+<p>As we are looking at Singapore’s top 6 merchandise trading partners and not just each countries’ export and import, it was decided to use stacked area chart to visualize the merchandise trade (sum of import and export) which shows the part to whole relationship well. Hence, we are also able to see the proportion of import and export relative to the sum of them like how Hong Kong has a very low import but actually has higher overall merchandise trade than that of Japan. This overcomes the issues raised in <a href="#by-clarity"><strong><em>C6</em></strong></a> and <a href="#by-aesthetics"><strong><em>A5</em></strong></a>.</p>
+</div>
+<div id="using-a-single-y-axis." class="section level4">
+<h4><strong>Using a single y-axis.</strong></h4>
+<p>One of the key confusing points in the original design was that the y-axis keeps changing for both imports and exports and for all six countries stated in <a href="#by-clarity"><strong><em>C3</em></strong></a> and <a href="#by-clarity"><strong><em>C4</em></strong></a>. Hence, in the proposed design, merchandise trade of each country shares the same y-axis on the left by placing all 6 countries on the same axis, dividing the visualization into 6 subplots horizontally instead of a 3 by 2 grid (discussed in <a href="#by-aesthetics"><strong><em>A3</em></strong></a>). This also makes it easier to compare number across countries.</p>
+</div>
+<div id="countries-merchandise-trade-are-ranked-in-descending-order" class="section level4">
+<h4><strong>Countries’ merchandise trade are ranked in descending order</strong></h4>
+<p>We know the top 6 trading countries, but do we know the country with the highest merchandise trade? Do we know out of the 6 countries, which country has the lowest trade? This was one of the critique made in <a href="#by-aesthetics"><strong><em>A4</em></strong></a> which we corrected by adding the order in which the countries are placed so that we can see this ranking at a single glance.</p>
+</div>
+<div id="using-quarterly-data-instead-of-monthly-data" class="section level4">
+<h4><strong>Using Quarterly data instead of monthly data</strong></h4>
+<p>Unfortunately, one drawback of using a single y-axis and comparing 6 countries like this in 6 horizontal subplots is that each subplot has limited x-axis space. If we were to show 2 years worth of monthly data, the level of detail shown by the area of chart would be too messy. Keeping in mind that we want to show Singapore’s top 6 trading partners across 2 years, it was decided that aggregating to quarterly data is sufficient to show just enough variation across time and yet not over complicate the visualization.</p>
+</div>
+<div id="consistent-x-axis-range-in-each-subplot." class="section level4">
+<h4><strong>Consistent x-axis range in each subplot.</strong></h4>
+<p>To solve <a href="#by-clarity"><strong><em>C1</em></strong></a> and <a href="#by-clarity"><strong><em>C2</em></strong></a>, we ensured that the axis in each subplot is of the same width, with the same range starting from 2019 Q1 to 2020 Q4.</p>
+</div>
+<div id="other-fixes" class="section level4">
+<h4><strong>Other fixes</strong></h4>
+<p>Other fixes were made such as</p>
+<ul>
+<li>Ensuring that the visualization title has the largest font (<a href="#by-aesthetics"><strong><em>A1</em></strong></a>)</li>
+<li>Adding annotations referring to certain portions of the graph to deliver insights more effectively <a href="#by-aesthetics">(<strong><em>A2</em></strong></a>)</li>
+<li>Ensuring that y-axis and x-axis all have tick marks (<a href="#by-clarity"><strong><em>C5</em></strong></a>)</li>
+</ul>
+</div>
+</div>
+<div id="proposed-visualization" class="section level3">
+<h3>Proposed Visualization</h3>
+<p>The final proposed visualization is as follows:</p>
+<p><img src="img/final.jpg" width="692" /></p>
+<p>The visualization can also be access on <a href="https://public.tableau.com/app/profile/yen.ngee/viz/SingaporeTop6TradingPartners/SGTop6TradingPartners">Tableau Public</a></p>
+</div>
+</div>
+<div id="step-by-step-guide" class="section level2">
+<h2>3. Step by Step Guide</h2>
+<p>In this portion, we will be running through the steps to create the final proposed visualization starting from loading and understanding the data, then we will run through what is done to prepare the data and finally creating the visualization on Tableau.</p>
+<div id="loading-and-understanding-the-data" class="section level3">
+<h3>Loading and Understanding the data</h3>
+<p>The Data obtained from the subsection of <a href="https://www.singstat.gov.sg/find-data/search-by-theme/trade-and-investment/merchandise-trade/latest-data">Merchandise Trade by Region/Market</a> and was downloaded by clicking on the link Download all in Excel on the same web page.</p>
+<p>Opening the Excel file we see that there are 3 tabs:</p>
+<ul>
+<li>Content – describes the content of the data in each page, hence we will not use this sheet.</li>
+<li>T1 – Merchandise Imports</li>
+<li>T2 – Merchandise Exports</li>
+</ul>
+<p><img src="img/step-A1_excel.jpg" width="331" /></p>
+<p>On the top and bottom of the tab, there are notes which we would need to remove in our data preparation step. The header row starts from 6th row. There is data with countries represented by row and monthly data represented by columns. Looking at the first few rows, there are also aggregated such as Total Merchandise and regional data such as Asia(Million Dollars) which we will need to remove. Across the columns, we would also only need to extract data from 2019 Jan to 2020 Dec. T2 has a similar structure as T1 and will be prepared in a similar way.</p>
+<p><img src="img/step-A2_T1_top.jpg" width="331" /></p>
+<p><img src="img/step-A2_T1_bottom.jpg" width="331" /></p>
+<p>In our proposed visualization, we are looking at both exports and imports in a stacked area chart across time and country. Hence, we will need to prepare the data such that it is in a long format which makes it easier to manipulate in Tableau. The final form of the data should look something like this:</p>
+<p><img src="img/step-A3_T1_final.JPG" width="251" /></p>
+</div>
+<div id="data-preparation" class="section level3">
+<h3>Data Preparation</h3>
+<p>We will be using Tableau Prep Builder to prepare the data. Each step is explained carefully such that it can also be replicated using alternative means.</p>
+<div id="step-1-connect-to-data-source" class="section level4">
+<h4><strong>Step 1: Connect to Data Source</strong></h4>
+<p>After opening Tableau Prep Builder Software, we first need to connect to the Data Source. In this case, we will connect to the excel file that was previously downloaded.</p>
+<p><img src="img/step-B1_connect.jpg" width="562" /></p>
+</div>
+<div id="step-2-add-data-to-flow" class="section level4">
+<h4><strong>Step 2: Add Data to Flow</strong></h4>
+<p>In the new interface, drag and drop T1 onto the working space on the right. Tableau Prep Builder will automatically load the data. However, we can see that it has also included the notes that we need to delete. Tableau has a handy button on the left called Use <code>Data Interpreter</code> which automatically extracts the table data without us having the manually delete the columns.</p>
+<p><img src="img/step-B2_data_interpret.JPG" width="819" /></p>
+<p>From there, if we right click on T1, we can choose various steps to treat the data. We will first clean the data.</p>
+<p><img src="img/step-B2_add_sheetdata.jpg" width="331" /></p>
+</div>
+<div id="step-3a-clean-t1---filter-the-data" class="section level4">
+<h4><strong>Step 3a: Clean T1 - filter the data </strong></h4>
+<p>At this step, our data looks like this.</p>
+<p><img src="img/step-B3_before_clean.JPG" width="676" /></p>
+<p>As mentioned in Loading and Understanding the data section, we need to exclude the aggregated data. Selecting the first 7 rows until “European Union (Million Dollars)”, we can right click and select <code>Exclude</code> to exclude these data. At the same time, our visualization only include data from 2019 to 2020. Hence, we select the columns from all other dates and select <code>Remove</code>. What is left is the Import data of all countries from 2019 to 2020.</p>
+<p>Note: at this point, we could possibly only keep data from the 6 countries identified in the original visualization. It was just a personal choice to keep all of the data for now, so that we can do other visualization with all of the trade data for fun. ;)</p>
+<p><img src="img/step-B3_filter.jpg" width="331" /></p>
+</div>
+<div id="step-3b-clean-t1---split-column-to-get-country" class="section level4">
+<h4><strong>Step 3b: Clean T1 - Split column to get country</strong></h4>
+<p>If we look under variables, we know that it is in the format of “white space” + “country name” + “(Thousand Dollars)”. We want to only extract the country name, keeping in mind the values are in thousands. Hence, if we click the 3 dots on the column, we can do an <code>Automatic split</code> which will extract country name. The original column is then removed as we do not need it and the new column name is changed to “Country”.</p>
+<p><img src="img/step-B3_split.jpg" width="258" /></p>
+<p>The data after this step should look like this:</p>
+<p><img src="img/step-B3_after_clean.jpg" width="301" /></p>
+</div>
+<div id="step-4-pivot-t1" class="section level4">
+<h4><strong>Step 4: Pivot T1</strong></h4>
+<p>Next, we have to convert all the data in each column and pivot them into rows. To do so, we first select all the columns except for “Country”, and click on <code>Pivot Columns to Rows</code>.</p>
+<p><img src="img/step-B4_to_pivot.jpg" width="319" /></p>
+<p>This will automatically create a pivot step where they will keep the “Country” as it is and create row with each row containing the value found within the original column. We rename “Pivot1 Names” as “Date” and “Pivot1 Values” as “Import (in thousand)”</p>
+<p><img src="img/step-B4_after_pivot.jpg" width="330" /></p>
+</div>
+<div id="repeat-steps-2-to-4-for-t2-except-to-rename-the-column-after-pivoting-as-export-in-thousand-since-t2-has-the-same-structure-as-t1." class="section level4">
+<h4>Repeat steps 2 to 4 for T2, except to rename the column after pivoting as “Export (in thousand)” since T2 has the same structure as T1.</h4>
+</div>
+<div id="step-5-join-pivoted-t1-and-pivoted-t2" class="section level4">
+<h4><strong>Step 5: Join Pivoted T1 and Pivoted T2</strong></h4>
+<p>Now we would like to combine the data set. There are different ways of doing this. However, I chose to inner join the two data sets on “Country” and “Date”. This means that the data left are countries that must have both imports and exports throughout the period of 2019 and 2020.</p>
+<p>To do this, we simply drag <code>Pivot 2</code> over <code>Pivot 1</code> under the join option which will appear when you hover over it. This will be the result after removing the duplicated columns of “Date” and “Country”:</p>
+<p><img src="img/step-B5_after_pivot.jpg" width="301" /></p>
+<p>Note: a manual check confirms that the 6 countries that we are concerned with is part of this data set.</p>
+</div>
+<div id="step-6-clean" class="section level4">
+<h4><strong>Step 6: Clean </strong></h4>
+<p>At this point, it is easy to convert the “Import(in thousands)” and “Export(in thousands)” to the values multiply by 1000. Clicking the 3 dots, we select <code>Create Calculated Field</code>, then <code>Custom Calculation</code>.</p>
+<p><img src="img/step-B6_calculated_field.jpg" width="177" /></p>
+<p>We’ll come to this pop up where we can key in our new column. We will follow the following formulas:</p>
+<ul>
+<li>Export = [Export(in thousands)] * 1000</li>
+<li>Import = [Import(in thousands)] * 1000</li>
+</ul>
+<p><img src="img/step-B6_calculated_field2.jpg" width="331" /></p>
+<p>We remove the old columns and select the 2 new columns (“Import” &amp; “Export”) and pivot them again.</p>
+</div>
+<div id="step-7-pivot-final-clean" class="section level4">
+<h4><strong>Step 7: Pivot + Final Clean</strong></h4>
+<p>We are very close to the final table that we need. We just need to do a final check on the column name data type and change them where necessary:</p>
+<p><em>column name change:
++ “Pivot1 Name” to “Trade Type”
++ “Pivot1 Value” to “Amount”
+</em>data type change:
++ “Date”: from string to date type</p>
+<p>Here is the final table:</p>
+<p><img src="img/step-B7_final.jpg" width="270" /></p>
+<p>In the work space, we can also see the following work flow:</p>
+<p><img src="img/step-B7_final_flow.JPG" width="552" /></p>
+</div>
+<div id="step-8-output" class="section level4">
+<h4><strong>Step 8: Output</strong></h4>
+<p>We could create an output node to output the data. However, Tableau Data Prep allows us to have a shortcut. By right-click on the last node and selecting <code>Preview in Tableau Desktop</code>, we can create the visualization directly.</p>
+</div>
+</div>
+<div id="create-visualization" class="section level3">
+<h3>Create Visualization</h3>
+<p>We will be using Tableau Desktop to create the visualization and this section will provide a step by step guide to do so. Before we begin, it is always good to have cursory check on the data type. We see that “Country”, “Date” and Trade Type are dimensions while “Amount” is in Measure.</p>
+<div id="step-1" class="section level4">
+<h4><strong>Step 1: </strong></h4>
+<p>The first step is to drag and drop the data into our graph.</p>
+<ul>
+<li>Columns: we drag “Country” and “Date”</li>
+<li>Row: we drag “Amount”</li>
+</ul>
+<p>Automatically, Tableau calculates the sum of the “Amount” which is exactly what we need. For “Date” it automatically selects the “Year” as an input dimension.</p>
+<p><img src="img/step-C1_drag_and_drop.jpg" width="347" /></p>
+</div>
+<div id="step-2" class="section level4">
+<h4><strong>Step 2:</strong></h4>
+<p>We can see from the screenshot above there are too many countries. Hence, we need to filter the data by “Country”. Drag and drop “Country” onto the Filter card next to the graph. A window will pop-up (see screenshot below). From there we will manually select the top 6 countries: United States, Malaysia, Hong Kong, Japan, Mainland China and Taiwan.</p>
+<p><img src="img/step-C2_filter_country.jpg" width="422" /></p>
+<p>Results will look like this:</p>
+<p><img src="img/step-C2_filter_country_after.jpg" width="452" /></p>
+</div>
+<div id="step-3" class="section level4">
+<h4><strong>Step 3:</strong></h4>
+<p>Now we have line charts of each countries’ total trade merchandise. However, we would like to split them into “Import” and “Export”. We drag “Trade Type” and drop them in <code>colour</code>. Tableau will split the data to 2 lines.</p>
+<p><img src="img/step-C3_trade_type.jpg" width="301" /></p>
+</div>
+<div id="step-4" class="section level4">
+<h4><strong>Step 4:</strong></h4>
+<p>Tableau automatically churns out line graphs for us. However, following our proposed design, we want an area chart. On the left side under <code>Marks</code>, we can select <code>Area</code> in the drop down to turn this into an area chart.</p>
+<p><img src="img/step-C4_area_chart.jpg" width="690" /></p>
+</div>
+<div id="step-5" class="section level4">
+<h4><strong>Step 5: </strong></h4>
+<p>This shows the yearly data for each country but we want quarterly data. Hence clicking on the triangle in the “Year(Date)” on “Date”, we can select <code>Quarter</code> from the list. Note that we choose the <code>Quarter</code> in the lower section, this would give a measure rather than a dimension. This means that the area chart would be continuous within each countries’ subplot.</p>
+<p><img src="img/step-C5_change_to_quarter.jpg" width="452" /></p>
+<p>This is the result:</p>
+<p><img src="img/step-C5_result.jpg" width="301" /></p>
+</div>
+<div id="step-6" class="section level4">
+<h4><strong>step 6: </strong></h4>
+<p>Now we have the foundation of the visualization. Let’s sort them in descending order. Under the <code>Filters</code> card, we click the triangle button on “Country” and select sort. A window will pop-up and we need to select such that we are sorting by <code>Field</code>, in descending Order, using the <code>Field Name</code>: “Amount” with <code>Aggregation</code>: “Sum”.</p>
+<p><img src="img/step-C6_sort.jpg" width="301" /></p>
+<p>This is the result:</p>
+<p><img src="img/step-C6_result.jpg" width="301" /></p>
+</div>
+<div id="step-7" class="section level4">
+<h4><strong>Step 7: </strong></h4>
+<p>Let us now adjust the axis. For the y-axis, the values are in Billions with horizontal grid lines. All we need to do is to add the units to indicate dollars. So we right-click on the y-axis, and select format in the drop down. The formatting pane will appear on the left. Since we are formatting the axis, we do not change the tab. Under the scale, we can format the <code>Number</code> selecting <code>Currency [Custom]</code>:</p>
+<ul>
+<li>Decimal places: 0</li>
+<li>Display Units: Billion (B)</li>
+</ul>
+<p>The changes can be seen immediately on the y-axis:</p>
+<p><img src="img/step-C7_yaxis.jpg" width="452" /></p>
+</div>
+<div id="step-8" class="section level4">
+<h4><strong>Step 8: </strong></h4>
+<p>Formatting x-axis is slightly more tricky. Due to the limited space, we face the following issues for each subplot:</p>
+<ul>
+<li>not able to display label for all quarters. (i.e. cannot use 2019 Q1, 2019 Q2,…, 2020 Q4)</li>
+<li>not able to display simplified labels either (i.e. cannot use Q1, Q2, Q3, Q4, Q1, Q1, Q2, Q3, Q4)</li>
+<li>not able to display the year to split the “Quarters” without splitting area chart per country which is not what we want. (If we add year, it will be added as a dimension variable and tableau will automatically displays it on top. If we use only dimension variable, the graphs will split as mention.)</li>
+</ul>
+<p>Hence to overcome these issues, we worked around it:</p>
+<p>First let us format the x-axis such that it displays Q1,Q2 etc. Right click on the x-axis and selecting format will open the format pane on the left.
+Under Scale, <code>Dates</code>, we select <code>Custom</code> and key in “Q”q.</p>
+<p>We can see the changes immediately on the right.</p>
+<p><img src="img/step-C8_xaxis_format.jpg" width="428" /></p>
+<p>Let us also change all the font size under <code>Default</code> and <code>Title</code> to size 8, <code>Tableau Book</code>.</p>
+<p><img src="img/step-C8_xaxis_font.jpg" width="301" /></p>
+<p>Next we right click on the x-axis to <code>Edit Axis</code>, and click on the tab <code>Tick Marks</code>
+We uncheck <code>Show times</code> as this is irrelevant for us. We will do the following changes:</p>
+<ul>
+<li>Major Tick Marks
+<ul>
+<li>select Fixed</li>
+<li>Tick origin: 1/1/2019</li>
+<li>Interval: 2</li>
+<li>Unit: Quarters</li>
+</ul></li>
+<li>Minor Tick Marks
+<ul>
+<li>select Fixed</li>
+<li>Tick origin: 1/4/2019</li>
+<li>Interval: 2</li>
+<li>Unit: Quarters</li>
+</ul></li>
+</ul>
+<p>Now we can see that there are tick marks every quarter. The major tick marks will mark Q1 and Q3.</p>
+<p><img src="img/step-C8_xaxis_tick.jpg" width="301" /></p>
+<p>Switch to <code>General</code> to update the <code>Axis Title</code> by keying in “2019 | 2020” into <code>Title</code>
+This is the little trick to label the year in the x-axis since the title will always be centered for each subplot.</p>
+<p><img src="img/step-C8_xaxis_title.jpg" width="301" />
+Now we have a good x-axis with consistent width, consistent tick marks, sufficient labels. This is the end result:</p>
+<p><img src="img/step-C8_results.jpg" width="301" /></p>
+</div>
+<div id="step-9" class="section level4">
+<h4><strong>Step 9:</strong></h4>
+<p>Next we want to add circles to the total merchandise trade to indicate the points more clearly. Unfortunately, Tableau does not provide the option of adding shapes or marks to the individual points for area charts unlike line chart. Hence, we need to work around it by using dual axis.</p>
+<p>First, we drag Amount to the right side of the chart until we see a dotted line. This will duplicate the same chart only with the y-axis on the right this time. If we look at the card under Marks, there is now additional cards. We pick the second one and make the following changes:</p>
+<ul>
+<li>Change <code>Area</code> to <code>Circle</code> in the dropdown</li>
+<li>Remove “Trade type” from <code>colour</code> as we do not need to split the data</li>
+<li>change the <code>colour</code> to something darker for visibility</li>
+<li>change the <code>size</code> to something smaller so that it does not overwhelm the visualization.</li>
+</ul>
+<p>The results will be something like this:</p>
+<p><img src="img/step-C9_add_circles.jpg" width="301" /></p>
+</div>
+<div id="step-10" class="section level4">
+<h4><strong>Step 10: </strong></h4>
+<p>Let us be a bit more specific with our titles.
+For the title at the y-axis, let us rename it as “Merchandise Trade Amount”
+For the “Country” at the top, it is rather redundant and so we will remove it.
+For the overall title we will write: “Singapore’s Top Six Merchandise Trading Partners (2019-2020)”</p>
+<p>Let us also adjust the font size and font for consistency and so that attention is in the right place:</p>
+<ul>
+<li>Title Format: Tableau Light, size 15, Bold</li>
+<li>“Country” Format: Tableau Book, size 9, colour html: #555555</li>
+<li>y-axis title Format: Tableau Book, size 9, colour html: #555555</li>
+</ul>
+<p>The results will be something like this:</p>
+<p><img src="img/step-C10_results.jpg" width="301" /></p>
+</div>
+<div id="step-11" class="section level4">
+<h4><strong>Step 11 </strong></h4>
+<p>Now to add annotations and reference lines. Right-click on the white space to select annotations, and then <code>Area</code>, will pop-up a window for editing the annotation. For this visualization, we select <code>Font</code> = “Tableau Book” and <code>Font Size</code> = 9. We place the annotations in areas where the content of the annotations makes the most sense, taking into consideration the white spaces in the visualization.</p>
+<p><img src="img/step-C11_annotate.jpg" width="301" /></p>
+<p>One unique even that happened in 2020 is the spreading of COVID, which affected the whole world. To highlight that period, we added a reference band.
+On the x-axis, right click to select <code>Add Reference Line</code>. A window will pop-up. As we would like to highlight a segment for each country, we select <code>Band</code>, <code>Per Pane</code>, ensuring that the date values in <code>Band From</code> is “1/1/2020” and date values in <code>Band To</code> is “1/4/2020”. Next, we edit the <code>Label</code> to <code>Custom</code>, entering “Covid Worsen in SG”, putting the <code>Label</code> to <code>None</code> under <code>Band To</code> so that only one label will appear.</p>
+<p><img src="img/step-C11_ref_band.jpg" width="278" /></p>
+</div>
+<div id="and-we-are-done" class="section level4">
+<h4><strong>and we are done!</strong></h4>
+</div>
+</div>
+</div>
+<div id="derived-insights" class="section level2">
+<h2>4 Derived Insights</h2>
+<div id="insight-1" class="section level3">
+<h3>Insight 1</h3>
+<p>Singapore’s top 6 merchandise trading partners are as follows, ranked in descending order:</p>
+<ol style="list-style-type: decimal">
+<li>Mainland China</li>
+<li>Malaysia</li>
+<li>United States</li>
+<li>Taiwan</li>
+<li>Hong Kong</li>
+<li>Japan</li>
+</ol>
+<p>This ranking does not surprise us. As the <a href="https://www.statista.com/chart/20858/top-10-countries-by-share-of-global-manufacturing-output/">world’s manufactoring superpower</a> and given geographical proximity, it is natural for China to become the highest merchandise trading partner of Singapore. This is followed by Malaysia, just by virtue of the fact that Singapore and Malaysia are neighbours and transporting goods are made convenient. The United States comes a close third as the <a href="https://www.statista.com/topics/1308/trade-in-the-us/#:~:text=In%202018%2C%20the%20United%20States,the%20world&#39;s%20total%20export%20trade.">third largest global merchandise exporter</a>. Followed by Taiwan, Hong Kong and Japan which are all in Asia. It is also interesting to note that all 6 countries have <a href="https://www.mti.gov.sg/-/media/MTI/improving-trade/FTAs/All-you-need-to-know-about-SG-FTAs-and-DEAs.pdf">Free Trade Agreements</a> with Singapore.</p>
+<p>Even though there is a clear ranking, we can also see from the visualization that there is no one country’s trade that exceeds other countries’ trade by a large proportion which implies that Singapore does not solely rely on a single country for imports and exports.</p>
+</div>
+<div id="insight-2" class="section level3">
+<h3>Insight 2</h3>
+<p>If we observe the proportions of the export and imports in the visualization, we can see an exception where Singapore’s trade exports with Hong Kong is at least 10 times bigger than that of imports resulting in a large merchandise trade surplus. (This only occurs with Hong Kong and not with any of the other 6 countries.) It seems that Hong Kong is at the disadvantage here, however, knowing that Hong Kong has close relations with Singapore, it is likely that Hong Kong benefits from Singapore through means other than merchandise trading.</p>
+<p><a href="https://www.thebalance.com/balance-of-trade-definition-favorable-vs-unfavorable-3306261">Notes about trade</a>:
++ Trade surplus (positive trade balance) -&gt; when exports exceed imports
++ Trade deficit (Negative trade balance) -&gt; when exports are less than imports
++ Trade surplus is harmful when government uses protectionism
++ Otherwise, most countries will strive for Trade surplus</p>
+</div>
+<div id="insight-3" class="section level3">
+<h3>Insight 3</h3>
+<p>In 2020 Q1-Q2 was when COVID situation worsened in Singapore, resulting in circuit breaker where many work places had to be shut down for 2 months except for essential services. It is expected that <a href="https://www.channelnewsasia.com/news/business/singapore-exports-q3-third-quarter-oil-nodx-13619218">trade (especially exports) fall</a> during this period. This is apparent for Mainland China and Malaysia where we observe a relatively larger dip in trade in this period. There is a slight decrease in trade during this period for the other countries except for Taiwan and it could be that the goods that Singapore trade with Taiwan remains unaffected by the COVID situation.</p>
+</div>
+</div>
