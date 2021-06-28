@@ -28,15 +28,15 @@ theme = "hugo-theme-dream"
   author = "Ng Yen Ngee"
   # description = ""
   avatar = "/img/avatar.jpeg"
-  headerTitle = "Hugo Theme Dream"
-  motto = "Motto"
+  headerTitle = "Data Visualization"
+  motto = "Analyse data to make better decisions"
   # maxTags = 5
   # categoriesLimitInHeader = 6 # deprecated
   # headerBottomText = "" # deprecated
 
   # footerBottomText = ""
 
-  # rss = true
+  rss = true
 
   # utterancesRepo = ""
 
@@ -54,30 +54,30 @@ theme = "hugo-theme-dream"
   # stackoverflow = ""
   # codepen = ""
 
-  siteStartYear = 2016
+  siteStartYear = 2021
 
-  # favicon = "/favicon.ico"
+  favicon = "/favicon.ico"
 
-  # highlightjs = true
+  highlightjs = true
   # highlightjsCDN = "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"
-  # highlightjsExtraLanguages = ["ocaml"]
-  # highlightjsTheme = "gruvbox-light"
-  # highlightjsThemeDark = "gruvbox-dark"
+  highlightjsExtraLanguages = ["ocaml"]
+  highlightjsTheme = "gruvbox-light"
+  highlightjsThemeDark = "gruvbox-dark"
 
   # search
   # enableSearch = true
 
   # options
-  # showSummaryCoverInPost = true
+  showSummaryCoverInPost = true
   # hasTwitterEmbed = true
   # reversePostAndAside = true
   # shareInAside = true
-  # fixedNav = true
+  fixedNav = true
   # collapsibleTags = true
   # collapseBySummary = false
 
-  # [params.advanced]
-  #   customCSS = ["css/custom.css"]
+  [params.advanced]
+    customCSS = ["css/custom.css"]
   #   customJSBefore = []
   #   customJS = []
 
