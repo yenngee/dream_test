@@ -10,19 +10,19 @@ theme = "hugo-theme-dream"
 
 # disqusShortname = ""
 
-# enableRobotsTXT = true
+enableRobotsTXT = true
 
 [params]
   background = "#f7f7f7"
-  # backgroundImage = "/me/background.jpg"
+  backgroundImage = "/me/background.jpg"
   linkColor = "seagreen"
 
   # dark mode
   # defaultDark = true
-  # backgroundDark = "black"
-  # backgroundImageDark = "/me/background-dark.jpg"
-  # darkLinkColor = "darkseagreen"
-  # darkNav = true
+  backgroundDark = "#333"
+  backgroundImageDark = "/me/background.jpg"
+  darkLinkColor = "darkseagreen"
+  darkNav = true
   # dark404 = true
 
   author = "Ng Yen Ngee"
@@ -56,13 +56,13 @@ theme = "hugo-theme-dream"
 
   siteStartYear = 2021
 
-  favicon = "/favicon.ico"
+  # favicon = "/favicon.ico"
 
-  highlightjs = true
+  # highlightjs = true
   # highlightjsCDN = "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"
-  highlightjsExtraLanguages = ["ocaml"]
-  highlightjsTheme = "gruvbox-light"
-  highlightjsThemeDark = "gruvbox-dark"
+  # highlightjsExtraLanguages = ["ocaml"]
+  # highlightjsTheme = "gruvbox-light"
+  # highlightjsThemeDark = "gruvbox-dark"
 
   # search
   # enableSearch = true
